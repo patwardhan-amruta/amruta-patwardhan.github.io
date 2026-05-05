@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amruta Patwardhan — Developer Portfolio</title>
+  <meta name="description"
+    content="Amruta Patwardhan — PHP Laravel Developer, Frontend Developer & QA Engineer. Building scalable web applications with precision.">
+  <meta property="og:title" content="Amruta Patwardhan — Developer Portfolio">
+  <meta property="og:description" content="PHP Laravel Developer | Frontend Developer | QA Engineer">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span id="logo-typed-text"></span><span class="logo-cursor">|</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link" data-text="About">About</a>
+        <a href="#skills" class="nav-link" data-text="Skills">Skills</a>
+        <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
+        <a href="#experience" class="nav-link" data-text="Experience">Experience</a>
+        <a href="#resume" class="nav-link" data-text="Resume">Resume</a>
+        <a href="#contact" class="nav-link nav-link--cta" data-text="Contact">Contact</a>
+      </div>
+      <div class="theme-toggle" id="theme-toggle" title="Toggle theme">
+        <div class="theme-toggle-track">
+          <button class="theme-toggle-btn" data-theme="dark" aria-label="Dark mode">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
+          <button class="theme-toggle-btn" data-theme="system" aria-label="System theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </button>
+          <button class="theme-toggle-btn" data-theme="light" aria-label="Light mode">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5" />
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+          </button>
+          <div class="theme-toggle-indicator" id="theme-indicator"></div>
+        </div>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line hero-title-line--1">
+          <span class="hero-title-word" data-animate> Om</span>
+          <span class="hero-title-word" data-animate> Dhabe </span>
+        </span>
+      </h1>
+      <div class="hero-role">
+        <span class="hero-role-text" id="typed-text"></span>
+        <span class="hero-role-cursor">|</span>
+      </div>
+      <p class="hero-description">
+        Building the future of web — one API, one pixel, one deployment at a time.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Work</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+
+    <!-- Floating Orbital Elements -->
+    <div class="hero-orbitals">
+      <div class="orbital orbital--1"></div>
+      <div class="orbital orbital--2"></div>
+      <div class="orbital orbital--3"></div>
+      <div class="orbital orbital--ring"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section about" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">01 / About</span>
+        <h2 class="section-title reveal-text">
+          Crafting digital<br>
+          <span class="gradient-text">experiences</span>
+        </h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal-up">
+          <p class="about-lead">
+            Results-driven developer with <strong>2 years</strong> of hands-on experience in building
+            production-grade applications with Laravel, REST APIs, and scalable web architectures.
+          </p>
+          <p>
+            I've improved API performance by <span class="highlight-text">30%</span>, optimized complex database
+            queries, and managed full production deployment cycles. I thrive at the intersection of clean code,
+            thoughtful architecture, and pixel-perfect interfaces.
+          </p>
+          <p>
+            From backend systems powering 1000+ users to responsive frontends with smooth interactions — I build with
+            precision and purpose.
+          </p>
+        </div>
+        <div class="about-stats reveal-up">
+          <div class="stat-card">
+            <span class="stat-number" data-count="2">0</span>
+            <span class="stat-suffix"></span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="20">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">APIs Developed</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="30">0</span>
+            <span class="stat-suffix">%</span>
+            <span class="stat-label">Performance Boost</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="1000">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Users Served</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="section skills" id="skills">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">02 / Skills</span>
+        <h2 class="section-title reveal-text">
+          Technology<br>
+          <span class="gradient-text">Arsenal</span>
+        </h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal-up" data-tilt>
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 8l4 4-4 4M7 16l-4-4 4-4M14 4l-4 16" />
+            </svg>
+          </div>
+          <h3>Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal-up" data-tilt>
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+          </div>
+          <h3>Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal-up" data-tilt>
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <h3>DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">AWS</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-width="75"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal-up" data-tilt>
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12l2 2 4-4M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            </svg>
+          </div>
+          <h3>QA & Testing</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Manual Testing</span>
+            <span class="skill-tag">API Testing</span>
+            <span class="skill-tag">Automation</span>
+            <span class="skill-tag">Debugging</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-width="80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="section projects" id="projects">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">03 / Projects</span>
+        <h2 class="section-title reveal-text">
+          Selected<br>
+          <span class="gradient-text">Work</span>
+        </h2>
+      </div>
+      <article class="project-card reveal-up" data-tilt>
+        <div class="project-card-number">01</div>
+        <div class="project-card-content">
+          <span class="project-card-tag">Laravel · Full Stack · Agri-Tech</span>
+          <h3>FarmTradeX <span style="font-size:0.75em;font-weight:500;opacity:0.8;">(Agri Trading Platform)</span></h3>
+          <p>Built a multi-vendor agri-trading platform handling <strong>500+ users</strong> with real-time order
+            tracking, payment integration, and a full-featured admin dashboard.</p>
+          <div class="project-card-tech">
+            <span>PHP</span><span>Laravel
+              11</span><span>MySQL</span><span>JavaScript</span><span>AJAX</span><span>Bootstrap</span><span>REST
+              API</span><span>Razorpay</span>
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <h4>Roles & Responsibilities</h4>
+              <ul>
+                <li>Built a multi-vendor agri-trading platform handling <strong>500+ users</strong> with real-time order
+                  tracking and payment integration.</li>
+                <li>Developed responsive UI and dynamic components using Bootstrap/Tailwind and AJAX for seamless user
+                  experience.</li>
+                <li>Implemented backend services in Laravel for authentication, product management, order processing,
+                  and payment integration.</li>
+                <li>Designed RESTful APIs for handling cart, checkout, and order workflows.</li>
+                <li>Integrated online and offline payment systems including <strong>Razorpay</strong> with secure
+                  transaction handling.</li>
+                <li>Developed real-time order tracking and logistics module including dispatch and shipment updates.
+                </li>
+                <li>Created admin dashboard with analytics and reporting tools for business insights.</li>
+                <li>Implemented <strong>CI/CD pipelines</strong> using GitHub Actions for automated build and deployment
+                  workflows.</li>
+                <li>Managed version control with Git & GitHub, following structured branching and commit strategies.
+                </li>
+                <li>Deployed Laravel applications on <strong>cPanel hosting</strong>, handling domain, database, and
+                  file configurations.</li>
+                <li>Automated dependency management using Composer and optimized production builds.</li>
+                <li>Configured environment variables (.env) for secure and flexible application setup across
+                  environments.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="project-card-toggle" aria-label="Toggle details">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path class="arrow-path" d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </button>
+      </article>
+      <article class="project-card reveal-up" data-tilt>
+        <div class="project-card-number">02</div>
+        <div class="project-card-content">
+          <span class="project-card-tag">Frontend · E-commerce</span>
+          <h3>E-commerce UI</h3>
+          <p>Modern, responsive e-commerce interface with dynamic product filtering, cart management and seamless
+            checkout flow built for conversion optimization.</p>
+          <div class="project-card-tech">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span>
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <h4>Roles & Responsibilities</h4>
+              <ul>
+                <li>Developed responsive and scalable UI interfaces using HTML5, CSS3, JS, and Bootstrap.</li>
+                <li>Integrated frontend applications with RESTful APIs for dynamic content rendering.</li>
+                <li>Improved page load performance by 30% through UI optimization and efficient DOM manipulation.</li>
+                <li>Built reusable components, dashboards, and forms ensuring cross-browser compatibility.</li>
+                <li>Collaborated with design teams to translate Figma prototypes into production-ready interfaces.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="project-card-toggle" aria-label="Toggle details">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path class="arrow-path" d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </button>
+      </article>
+      <article class="project-card reveal-up" data-tilt>
+        <div class="project-card-number">03</div>
+        <div class="project-card-content">
+          <span class="project-card-tag">Design · Portfolio</span>
+          <h3>Portfolio Website</h3>
+          <p>This very site — a futuristic, anti-gravity themed portfolio with GSAP animations, particle effects,
+            glassmorphism UI, and zero framework dependencies.</p>
+          <div class="project-card-tech">
+            <span>HTML5</span><span>CSS3</span><span>GSAP</span><span>Canvas</span>
+          </div>
+          <div class="project-details">
+            <div class="project-details-inner">
+              <h4>Roles & Responsibilities</h4>
+              <ul>
+                <li>Architected a zero-framework portfolio utilizing vanilla HTML, modern CSS, and JS.</li>
+                <li>Implemented an advanced GSAP animation system with ScrollTrigger for dynamic reveals.</li>
+                <li>Engineered a custom interactive HTML5 canvas particle background with mouse repulsion.</li>
+                <li>Built a robust 3-mode theme toggler with local storage persistence and OS preference detection.</li>
+                <li>Applied glassmorphism aesthetics with dynamic neon gradient accents and custom cursors.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="project-card-toggle" aria-label="Toggle details">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path class="arrow-path" d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </button>
+      </article>
+    </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section class="section experience" id="experience">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">04 / Experience</span>
+        <h2 class="section-title reveal-text">
+          Professional<br>
+          <span class="gradient-text">Journey</span>
+        </h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-item reveal-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <h3>Software Developer</h3>
+                <span class="timeline-company">Doozie Software Solutions</span>
+              </div>
+              <span class="timeline-date"> 2024 — Present</span>
+            </div>
+            <ul class="timeline-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Developed and maintained Laravel-based web applications serving <strong>1000+ active users</strong>.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Designed and implemented <strong>20+ RESTful APIs</strong> for internal and third-party integrations.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Reduced API response time by <strong>30%</strong> through query optimization and indexing strategies.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Implemented secure authentication and authorization using <strong>Laravel middleware and RBAC</strong>.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Integrated third-party APIs including <strong>payment gateways</strong> and external service providers.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Optimized MySQL and PostgreSQL queries, improving <strong>database performance by 25%</strong>.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Configured and managed <strong>CI/CD pipelines</strong> using GitHub Actions and Jenkins, enabling automated deployments.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Managed application deployments via <strong>cPanel</strong> with environment-based configuration handling (Dev, UAT, Production).
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Used <strong>Docker</strong> for local development and containerized testing environments.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Debugged and resolved <strong>25+ production issues</strong>, reducing downtime and improving system stability.
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Implemented Laravel queues, cron jobs, form validation, service providers, and middleware for <strong>scalable architecture</strong>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME SECTION -->
+  <section class="section resume" id="resume">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">05 / Resume</span>
+        <h2 class="section-title reveal-text">
+          Download<br>
+          <span class="gradient-text">Resume</span>
+        </h2>
+      </div>
+      <p class="resume-subtitle reveal-up">Choose the resume tailored to the role you're hiring for.</p>
+      <div class="resume-grid">
+        <a href="Amruta-Patwardhan-FullStack-developer.pdf" download class="resume-card reveal-up" data-tilt>
+          <div class="resume-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 8l4 4-4 4M7 16l-4-4 4-4M14 4l-4 16" />
+            </svg>
+          </div>
+          <h3>PHP Laravel Developer</h3>
+          <p>Backend-focused resume highlighting Laravel, APIs, database optimization & DevOps skills.</p>
+          <div class="resume-card-action">
+            <span>Download PDF</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+          </div>
+        </a>
+        <a href="Amruta-Patwardhan-QA-Engineer.pdf" download class="resume-card reveal-up" data-tilt>
+          <div class="resume-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12l2 2 4-4M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            </svg>
+          </div>
+          <h3>QA Engineer</h3>
+          <p>Testing-focused resume showcasing manual & automated testing, API testing & quality assurance.</p>
+          <div class="resume-card-action">
+            <span>Download PDF</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+          </div>
+        </a>
+        <a href="Amruta-Patwardhan-Ui-Developer.pdf" download class="resume-card reveal-up" data-tilt>
+          <div class="resume-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+          </div>
+          <h3>UI Developer</h3>
+          <p>Frontend-focused resume highlighting responsive design, JavaScript, CSS architecture & UI/UX.</p>
+          <div class="resume-card-action">
+            <span>Download PDF</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section contact" id="contact">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">06 / Contact</span>
+        <h2 class="section-title reveal-text">
+          Let's build<br>
+          <span class="gradient-text">together</span>
+        </h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <p class="contact-lead">Have a project in mind, a role to fill, or just want to say hello? I'd love to hear
+            from you.</p>
+          <div class="contact-links">
+            <a href="mailto:amrutaspatwardhan4@gmail.com" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 4l-10 8L2 4" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-value">amrutaspatwardhan4@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+919380249080" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-link-label">Phone</span>
+                <span class="contact-link-value">+91 9380249080</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/amruta-patwardhan-4a76171a3/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BHLJGlYpXQRGXac8e4Ppxfg%3D%3D" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value">linkedin.com/in/Amruta-Patwardhan</span>
+              </div>
+            </a>
+            <a href="https://github.com/patwardhan-amruta" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-link-label">GitHub</span>
+                <span class="contact-link-value">github.com/Amruta-Patwardhan</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form reveal-up" id="contact-form">
+          <!-- TODO: Replace YOUR_ACCESS_KEY_HERE with your Web3Forms access key -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="hidden" name="subject" value="New Contact from Portfolio">
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+          <div class="form-group">
+            <input type="text" name="name" id="name" placeholder=" " required autocomplete="name">
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="email" placeholder=" " required autocomplete="email">
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form-group">
+            <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Send Message</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>OD<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p>Designed & built by Amruta Patwardhan</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/patwardhan-amruta" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/Amruta-Patwardhan" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
